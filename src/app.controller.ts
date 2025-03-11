@@ -1,13 +1,8 @@
-import { Controller, Get, Req, Post, Redirect, Query, Param, HostParam, Body } from '@nestjs/common';
+import { Controller, Get, Post, Redirect, Query, Param, HostParam, Body } from '@nestjs/common';
 import { AppService } from './app.service';
-import { query, Request } from 'express';
-import { version } from 'os';
 
-export class CreateCatDto {
-  name: string;
-  age: number;
-  breed: string;
-}
+
+
 
 @Controller()
 export class AppController {
@@ -27,25 +22,6 @@ export class WildCardController {
   @Get('abcd/*')
   findAll() {
     return 'This route uses a wildcard';
-  }
-}
-
-@Controller('cats')
-export class CatsController {
-  @Get()
-  findAll(@Query('age') age:number, @Query('breed') breed: string): string{
-    return `This action return all cats filtered by age ${age} and breed ${breed}`;
-  }
-
-  @Get(':id')
-  findOne(@Param() params: any): string{
-    console.log(params.id)
-    return `This action return a ${params.id} cat`;
-  }
-
-  @Post()
-  create(@Body() createCatDto: CreateCatDto) {
-    return 'This action adds a new cat';
   }
 }
 

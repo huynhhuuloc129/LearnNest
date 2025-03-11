@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
-import { AppController, CatsController, WildCardController } from './app.controller';
+import { AppController, WildCardController } from './app.controller';
+import { CatsController } from './cats/cat.controllers';
 import { AppService } from './app.service';
 
 @Module({
